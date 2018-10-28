@@ -1,0 +1,25 @@
+version: "3"
+
+networks:
+  wso2-network:
+    driver: bridge
+
+services:
+  transaction:
+    image: bantunes82/transaction-statistics-challenge
+    container_name: transaction-statistics-challenge
+    networks:
+      - wso2-network
+
+  wso2am:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: bantunes82/wso2am-2.6.0
+    container_name: wso2am-2.6.0
+    ports:
+      - "9443:9443"
+    networks:
+      - wso2-network
+    depends_on:
+      - transaction
