@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint xmlns="http://ws.apache.org/ns/synapse"
+          name="transactionStatisticApi--vv1_APIproductionEndpoint">
+   <http uri-template="http://transaction:8080">
+      <timeout>
+         <responseAction>fault</responseAction>
+      </timeout>
+   </http>
+   <property name="ENDPOINT_ADDRESS" value="http://transaction:8080"/>
+</endpoint>
